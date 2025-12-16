@@ -16,11 +16,9 @@ public class Application implements Runnable {
 
     @Override
     public void run() {
-        // реализуйте логику по запуску бенчмарка,
-        // ниже пример сравнения конкатениации строк
-
         Options opt = new OptionsBuilder()
-                .include(StringConcatBenchmark.class.getSimpleName())
+                .include(StudentNameBenchmark.class.getSimpleName())
+                .shouldFailOnError(true)
                 .build();
 
         try {

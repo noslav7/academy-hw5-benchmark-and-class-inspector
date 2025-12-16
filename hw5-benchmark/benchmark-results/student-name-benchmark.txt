@@ -1,0 +1,9 @@
+Student#name() invocation benchmarks (JMH 1.37, JDK 24.0.2, 1 thread)
+Warmup: 5 x 1s, Measurement: 8 x 1s, Forks: 2
+
+Benchmark                                   Mode  Cnt  Score   Error  Units
+StudentNameBenchmark.directCall             avgt   16  0.696 ± 0.032  ns/op
+StudentNameBenchmark.lambdaMetafactoryCall  avgt   16  0.967 ± 0.077  ns/op
+StudentNameBenchmark.methodHandleCall       avgt   16  3.975 ± 0.416  ns/op
+StudentNameBenchmark.reflectionCall         avgt   16  8.746 ± 1.454  ns/op
+
