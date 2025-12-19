@@ -1,13 +1,5 @@
 package academy;
 
-import java.lang.invoke.CallSite;
-import java.lang.invoke.LambdaConversionException;
-import java.lang.invoke.LambdaMetafactory;
-import java.lang.invoke.MethodHandle;
-import java.lang.invoke.MethodHandles;
-import java.lang.invoke.MethodType;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
@@ -21,6 +13,9 @@ import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
 
+/**
+ * Бенчмарк сравнивает разные способы получения имени студента.
+ */
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
@@ -29,67 +24,35 @@ import org.openjdk.jmh.infra.Blackhole;
 @Fork(value = 2)
 public class StudentNameBenchmark {
 
+    private static final String DEFAULT_NAME = "John Doe";
+    private static final int DEFAULT_AGE = 21;
+
     private Student student;
-    private Method reflectiveName;
-    private MethodHandle methodHandle;
-    private StudentNameAccessor lambdaAccessor;
+    private StudentNameAccessors accessors;
 
     @Setup
     public void setUp() {
-        student = new Student("John Doe", 21);
-        try {
-            reflectiveName = Student.class.getMethod("name");
-
-            MethodHandles.Lookup lookup = MethodHandles.lookup();
-            MethodType instanceGetter = MethodType.methodType(String.class, Student.class);
-            methodHandle = lookup.findVirtual(Student.class, "name", MethodType.methodType(String.class));
-
-            CallSite callSite = LambdaMetafactory.metafactory(
-                    lookup,
-                    "get",
-                    MethodType.methodType(StudentNameAccessor.class),
-                    instanceGetter,
-                    methodHandle,
-                    instanceGetter);
-            lambdaAccessor = (StudentNameAccessor) callSite.getTarget().invokeExact();
-        } catch (NoSuchMethodException | IllegalAccessException | LambdaConversionException e) {
-            throw new IllegalStateException("Failed to prepare benchmark helpers", e);
-        } catch (Throwable throwable) {
-            throw new IllegalStateException("Failed to create lambda accessor", throwable);
-        }
+        student = new Student(DEFAULT_NAME, DEFAULT_AGE);
+        accessors = StudentNameAccessors.create();
     }
 
     @Benchmark
     public void directCall(Blackhole bh) {
-        bh.consume(student.name());
+        bh.consume(accessors.direct(student));
     }
 
     @Benchmark
     public void reflectionCall(Blackhole bh) {
-        try {
-            bh.consume(reflectiveName.invoke(student));
-        } catch (IllegalAccessException | InvocationTargetException e) {
-            throw new IllegalStateException(e);
-        }
+        bh.consume(accessors.viaReflection(student));
     }
 
     @Benchmark
     public void methodHandleCall(Blackhole bh) {
-        try {
-            bh.consume((String) methodHandle.invokeExact(student));
-        } catch (Throwable throwable) {
-            throw new IllegalStateException(throwable);
-        }
+        bh.consume(accessors.viaMethodHandle(student));
     }
 
     @Benchmark
     public void lambdaMetafactoryCall(Blackhole bh) {
-        bh.consume(lambdaAccessor.get(student));
-    }
-
-    @FunctionalInterface
-    interface StudentNameAccessor {
-        String get(Student student);
+        bh.consume(accessors.viaLambda(student));
     }
 }
-

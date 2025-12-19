@@ -21,13 +21,13 @@ import org.openjdk.jmh.infra.Blackhole;
 @Fork(1)
 public class StringConcatBenchmark {
 
-    int iterations = 100;
+    private static final int ITERATIONS = 100;
 
     @Benchmark
     @SuppressFBWarnings("SBSC_USE_STRINGBUFFER_CONCATENATION")
     public void benchmarkStringAddition(Blackhole bh) {
         String s = "";
-        for (int i = 0; i < iterations; i++) {
+        for (int i = 0; i < ITERATIONS; i++) {
             //noinspection StringConcatenationInLoop
             s += i;
         }
@@ -37,7 +37,7 @@ public class StringConcatBenchmark {
     @Benchmark
     public void benchmarkStringBuilder(Blackhole bh) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < iterations; i++) {
+        for (int i = 0; i < ITERATIONS; i++) {
             sb.append(i);
         }
         bh.consume(sb.toString());
