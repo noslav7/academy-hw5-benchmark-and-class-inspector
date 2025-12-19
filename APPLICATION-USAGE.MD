@@ -7,15 +7,18 @@
 mvn package
 ```
 
-### Запуск JMH
-- Класс запуска: `org.openjdk.jmh.Main`
-- Минимальный пример (PowerShell):
+### Запуск
+- Запуск через JMH Main (из директории модуля):
 ```powershell
-java -cp "hw5-benchmark\target\classes;hw5-benchmark\target\dependency\*" org.openjdk.jmh.Main StudentNameBenchmark
+cd hw5-benchmark
+$cp = (Get-ChildItem "target\dependency\*.jar" | ForEach-Object { $_.FullName }) -join ";"
+java -cp "target\classes;$cp" org.openjdk.jmh.Main StudentNameBenchmark
 ```
-- Чтобы сохранить отчёт в файл (формат text):
+- Сохранение результатов в файл:
 ```powershell
-java -cp "hw5-benchmark\target\classes;hw5-benchmark\target\dependency\*" org.openjdk.jmh.Main StudentNameBenchmark -rf text -rff hw5-benchmark\benchmark-results.txt
+cd hw5-benchmark
+$cp = (Get-ChildItem "target\dependency\*.jar" | ForEach-Object { $_.FullName }) -join ";"
+java -cp "target\classes;$cp" org.openjdk.jmh.Main StudentNameBenchmark -rf text -rff benchmark-results.txt
 ```
 
 ### Что измеряется
