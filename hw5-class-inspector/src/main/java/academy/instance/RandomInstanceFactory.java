@@ -65,7 +65,7 @@ public class RandomInstanceFactory {
             return (T) cache.get(clazz);
         }
         if (depth > MAX_DEPTH || clazz == Object.class) {
-            return null;
+            return (T) null;
         }
         if (clazz.isArray()) {
             return (T) buildArray(clazz.getComponentType(), depth, cache);
@@ -77,12 +77,12 @@ public class RandomInstanceFactory {
             return (T) buildMap(clazz, null, null, depth, cache);
         }
         if (clazz.isInterface() || Modifier.isAbstract(clazz.getModifiers())) {
-            return null;
+            return (T) null;
         }
 
         Constructor<T> constructor = findConstructor(clazz);
         if (constructor == null) {
-            return null;
+            return (T) null;
         }
         constructor.setAccessible(true);
         Object[] args = Arrays.stream(constructor.getParameterTypes())
@@ -383,7 +383,6 @@ public class RandomInstanceFactory {
         return UUID.randomUUID().toString();
     }
 
-    @SuppressWarnings("null")
     private Object tryDateSubclassCtor(Class<?> clazz) {
         try {
             Constructor<?> longCtor = clazz.getDeclaredConstructor(long.class);

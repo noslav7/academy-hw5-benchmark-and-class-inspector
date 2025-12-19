@@ -99,7 +99,7 @@ public final class ClassInspector {
     }
 
     private static Map<OutputFormat, ClassInfoFormatter> createFormatters(JsonSerializer jsonSerializer) {
-        EnumMap<OutputFormat, ClassInfoFormatter> formatters = new EnumMap<>(OutputFormat.class);
+        Map<OutputFormat, ClassInfoFormatter> formatters = new EnumMap<>(OutputFormat.class);
         HierarchyRenderer hierarchyRenderer = new HierarchyRenderer();
         HierarchyMapBuilder hierarchyMapBuilder = new HierarchyMapBuilder();
         formatters.put(OutputFormat.TEXT, new TextClassInfoFormatter(hierarchyRenderer));
