@@ -1,5 +1,8 @@
-package academy;
+package academy.benchmark;
 
+import academy.accessor.AccessorFactory;
+import academy.accessor.AccessorStrategy;
+import academy.model.Student;
 import java.util.concurrent.TimeUnit;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
@@ -28,31 +31,39 @@ public class StudentNameBenchmark {
     private static final int DEFAULT_AGE = 21;
 
     private Student student;
-    private StudentNameAccessors accessors;
+    private AccessorStrategy directAccessor;
+    private AccessorStrategy reflectionAccessor;
+    private AccessorStrategy methodHandleAccessor;
+    private AccessorStrategy lambdaAccessor;
 
     @Setup
     public void setUp() {
         student = new Student(DEFAULT_NAME, DEFAULT_AGE);
-        accessors = StudentNameAccessors.create();
+        AccessorFactory.AccessorSet accessors = AccessorFactory.createAll();
+        directAccessor = accessors.direct();
+        reflectionAccessor = accessors.reflection();
+        methodHandleAccessor = accessors.methodHandle();
+        lambdaAccessor = accessors.lambda();
     }
 
     @Benchmark
     public void directCall(Blackhole bh) {
-        bh.consume(accessors.direct(student));
+        bh.consume(directAccessor.get(student));
     }
 
     @Benchmark
     public void reflectionCall(Blackhole bh) {
-        bh.consume(accessors.viaReflection(student));
+        bh.consume(reflectionAccessor.get(student));
     }
 
     @Benchmark
     public void methodHandleCall(Blackhole bh) {
-        bh.consume(accessors.viaMethodHandle(student));
+        bh.consume(methodHandleAccessor.get(student));
     }
 
     @Benchmark
     public void lambdaMetafactoryCall(Blackhole bh) {
-        bh.consume(accessors.viaLambda(student));
+        bh.consume(lambdaAccessor.get(student));
     }
 }
+

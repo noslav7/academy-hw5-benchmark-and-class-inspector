@@ -1,5 +1,7 @@
 package academy;
 
+import academy.benchmark.StudentNameBenchmark;
+import academy.runner.BenchmarkRunner;
 import java.util.concurrent.Callable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
