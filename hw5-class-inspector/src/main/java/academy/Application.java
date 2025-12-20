@@ -48,6 +48,8 @@ public class Application implements Callable<Integer> {
                 System.out.println(result);
             }
             return 0;
+        } catch (CommandLine.ParameterException e) {
+            throw e;
         } catch (CommandLine.ExecutionException e) {
             throw e;
         } catch (ClassNotFoundException e) {

@@ -10,7 +10,8 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 public class JsonSerializer {
 
     private final ObjectMapper objectMapper = new ObjectMapper().findAndRegisterModules()
-            .enable(SerializationFeature.INDENT_OUTPUT);
+            .enable(SerializationFeature.INDENT_OUTPUT)
+            .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
 
     /**
      * Сериализует объект в JSON.

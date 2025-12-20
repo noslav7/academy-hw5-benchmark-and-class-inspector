@@ -32,7 +32,8 @@ public class ClassInfoCollector {
      */
     public ClassInfo collect(Class<?> clazz) {
         String className = clazz.getName();
-        String superclass = clazz.getSuperclass() != null ? clazz.getSuperclass().getName() : null;
+        String superclass = clazz.getSuperclass() != null && clazz.getSuperclass() != Object.class
+                ? clazz.getSuperclass().getName() : null;
         List<String> interfaces = Arrays.stream(clazz.getInterfaces())
                 .map(Class::getSimpleName)
                 .toList();
