@@ -29,7 +29,7 @@ public class HierarchyRenderer {
         sb.append(node.name()).append('\n');
         for (int i = 0; i < node.children().size(); i++) {
             HierarchyNode child = node.children().get(i);
-            String childPrefix = prefix + (prefix.isEmpty() ? "  " : (last ? "    " : "│   "));
+            String childPrefix = prefix + (prefix.isEmpty() ? "  " : last ? "    " : "│   ");
             render(child, sb, childPrefix, i == node.children().size() - 1);
         }
     }

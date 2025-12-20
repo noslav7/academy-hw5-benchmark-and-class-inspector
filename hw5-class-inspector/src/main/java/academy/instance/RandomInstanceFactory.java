@@ -221,7 +221,7 @@ public class RandomInstanceFactory {
             if (instance instanceof Collection<?> collection) {
                 return (Collection<Object>) collection;
             }
-        } catch (Exception ignored) {
+        } catch (ReflectiveOperationException ignored) {
             // fall back to defaults
         }
         return null;
@@ -236,7 +236,7 @@ public class RandomInstanceFactory {
             if (instance instanceof Map<?, ?> map) {
                 return (Map<Object, Object>) map;
             }
-        } catch (Exception ignored) {
+        } catch (ReflectiveOperationException ignored) {
             // fall back to defaults
         }
         return null;
