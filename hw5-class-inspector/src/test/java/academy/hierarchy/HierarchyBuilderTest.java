@@ -1,14 +1,13 @@
 package academy.hierarchy;
 
-import academy.model.HierarchyNode;
-import academy.sample.Human;
-import academy.sample.Person;
-import academy.sample.Manager;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+
+import academy.model.HierarchyNode;
+import academy.sample.Manager;
+import academy.sample.Person;
+import org.junit.jupiter.api.Test;
 
 class HierarchyBuilderTest {
 

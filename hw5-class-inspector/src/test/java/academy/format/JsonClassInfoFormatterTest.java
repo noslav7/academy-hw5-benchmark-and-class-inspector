@@ -1,20 +1,19 @@
 package academy.format;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import academy.hierarchy.HierarchyMapBuilder;
 import academy.model.ClassInfo;
 import academy.model.FieldInfo;
 import academy.model.HierarchyNode;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import java.util.Collections;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class JsonClassInfoFormatterTest {
 
@@ -37,8 +36,7 @@ class JsonClassInfoFormatterTest {
                 Collections.emptyList(),
                 Collections.emptyList(),
                 Collections.emptyList(),
-                null
-        );
+                null);
 
         String result = formatter.format(info);
 
@@ -50,9 +48,7 @@ class JsonClassInfoFormatterTest {
 
     @Test
     void givenClassInfoWithFields_whenFormat_thenIncludesFields() throws Exception {
-        List<FieldInfo> fields = List.of(
-                new FieldInfo("public", "name", "String", Collections.emptyList())
-        );
+        List<FieldInfo> fields = List.of(new FieldInfo("public", "name", "String", Collections.emptyList()));
         ClassInfo info = new ClassInfo(
                 "academy.sample.Person",
                 null,
@@ -60,8 +56,7 @@ class JsonClassInfoFormatterTest {
                 fields,
                 Collections.emptyList(),
                 Collections.emptyList(),
-                null
-        );
+                null);
 
         String result = formatter.format(info);
 
@@ -83,8 +78,7 @@ class JsonClassInfoFormatterTest {
                 Collections.emptyList(),
                 Collections.emptyList(),
                 Collections.emptyList(),
-                root
-        );
+                root);
 
         String result = formatter.format(info);
 

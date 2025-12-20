@@ -7,9 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * Подготавливает отображение вида {@code name -> children} для сериализации дерева в JSON.
- */
+/** Подготавливает отображение вида {@code name -> children} для сериализации дерева в JSON. */
 public class HierarchyMapBuilder {
 
     /**
@@ -60,4 +58,3 @@ public class HierarchyMapBuilder {
         return candidate;
     }
 }
-

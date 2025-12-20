@@ -1,12 +1,11 @@
 package academy.accessor;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import academy.model.Student;
+import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.stream.Stream;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AccessorFactoryTest {
 
@@ -25,12 +24,6 @@ class AccessorFactoryTest {
 
     private static Stream<AccessorStrategy> accessorProvider() {
         AccessorFactory.AccessorSet accessors = AccessorFactory.createAll();
-        return Stream.of(
-                accessors.direct(),
-                accessors.reflection(),
-                accessors.methodHandle(),
-                accessors.lambda()
-        );
+        return Stream.of(accessors.direct(), accessors.reflection(), accessors.methodHandle(), accessors.lambda());
     }
 }
-

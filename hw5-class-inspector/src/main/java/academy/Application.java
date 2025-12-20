@@ -1,11 +1,10 @@
 package academy;
 
 import academy.format.OutputFormat;
+import java.util.concurrent.Callable;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
-
-import java.util.concurrent.Callable;
 
 @Command(
         name = "class-inspector",
@@ -14,7 +13,10 @@ import java.util.concurrent.Callable;
         description = "Отображает информацию о классе и создает экземпляры классов.")
 public class Application implements Callable<Integer> {
 
-    @Option(names = {"-c", "--class"}, required = true, description = "Полное имя класса для анализа.")
+    @Option(
+            names = {"-c", "--class"},
+            required = true,
+            description = "Полное имя класса для анализа.")
     private String className;
 
     @Option(
@@ -23,7 +25,9 @@ public class Application implements Callable<Integer> {
             description = "Формат вывода: ${COMPLETION-CANDIDATES}")
     private OutputFormat format;
 
-    @Option(names = {"--create"}, description = "Создать экземпляр класса и вывести его содержимое в JSON.")
+    @Option(
+            names = {"--create"},
+            description = "Создать экземпляр класса и вывести его содержимое в JSON.")
     private boolean createInstance;
 
     public static void main(String[] args) {

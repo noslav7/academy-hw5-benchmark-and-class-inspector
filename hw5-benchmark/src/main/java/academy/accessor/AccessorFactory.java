@@ -9,9 +9,7 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 import java.lang.reflect.Method;
 
-/**
- * Фабрика для создания различных стратегий доступа к полю студента.
- */
+/** Фабрика для создания различных стратегий доступа к полю студента. */
 public final class AccessorFactory {
 
     private static final String METHOD_NAME = "name";
@@ -36,9 +34,7 @@ public final class AccessorFactory {
                 new LambdaAccessor(lambdaGetter));
     }
 
-    /**
-     * Создает метод для доступа через рефлексию.
-     */
+    /** Создает метод для доступа через рефлексию. */
     private static Method createReflectionMethod() {
         try {
             return Student.class.getMethod(METHOD_NAME);
@@ -47,21 +43,16 @@ public final class AccessorFactory {
         }
     }
 
-    /**
-     * Создает MethodHandle для доступа к методу.
-     */
+    /** Создает MethodHandle для доступа к методу. */
     private static MethodHandle createMethodHandle(MethodHandles.Lookup lookup) {
         try {
-            return lookup.findVirtual(
-                    Student.class, METHOD_NAME, MethodType.methodType(String.class));
+            return lookup.findVirtual(Student.class, METHOD_NAME, MethodType.methodType(String.class));
         } catch (NoSuchMethodException | IllegalAccessException e) {
             throw new IllegalStateException("Не удалось создать MethodHandle", e);
         }
     }
 
-    /**
-     * Создает lambda-геттер через LambdaMetafactory.
-     */
+    /** Создает lambda-геттер через LambdaMetafactory. */
     private static LambdaAccessor.StudentNameGetter createLambdaGetter(
             MethodHandles.Lookup lookup, MethodHandle methodHandle) {
         try {
@@ -81,9 +72,7 @@ public final class AccessorFactory {
         }
     }
 
-    /**
-     * Набор всех стратегий доступа.
-     */
+    /** Набор всех стратегий доступа. */
     public static final class AccessorSet {
         private final DirectAccessor direct;
         private final ReflectionAccessor reflection;
@@ -118,4 +107,3 @@ public final class AccessorFactory {
         }
     }
 }
-

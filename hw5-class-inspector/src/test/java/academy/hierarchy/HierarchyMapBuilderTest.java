@@ -1,12 +1,11 @@
 package academy.hierarchy;
 
-import academy.model.HierarchyNode;
-import org.junit.jupiter.api.Test;
-
-import java.util.Map;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import academy.model.HierarchyNode;
+import java.util.Map;
+import org.junit.jupiter.api.Test;
 
 class HierarchyMapBuilderTest {
 

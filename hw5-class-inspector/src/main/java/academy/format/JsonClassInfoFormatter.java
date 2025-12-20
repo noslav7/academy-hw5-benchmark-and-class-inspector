@@ -8,9 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Форматирует результат инспекции в JSON.
- */
+/** Форматирует результат инспекции в JSON. */
 public class JsonClassInfoFormatter implements ClassInfoFormatter {
 
     private final JsonSerializer jsonSerializer;
@@ -49,4 +47,3 @@ public class JsonClassInfoFormatter implements ClassInfoFormatter {
             @JsonProperty("annotations") List<String> annotations,
             @JsonProperty("hierarchy") Map<String, Object> hierarchy) {}
 }
-

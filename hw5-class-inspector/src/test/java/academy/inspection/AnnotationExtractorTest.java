@@ -1,12 +1,11 @@
 package academy.inspection;
 
-import academy.sample.Person;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import academy.sample.Person;
 import java.lang.annotation.Annotation;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 class AnnotationExtractorTest {
 
@@ -26,4 +25,3 @@ class AnnotationExtractorTest {
         assertEquals("Entity", result.get(0));
     }
 }
-

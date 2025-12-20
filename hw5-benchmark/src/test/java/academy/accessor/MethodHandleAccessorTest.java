@@ -14,9 +14,7 @@ class MethodHandleAccessorTest extends AbstractAccessorTest {
         differentStudentName = "Diana Miller";
         differentStudentAge = 27;
         MethodHandles.Lookup lookup = MethodHandles.lookup();
-        MethodHandle methodHandle = lookup.findVirtual(
-                Student.class, "name", MethodType.methodType(String.class));
+        MethodHandle methodHandle = lookup.findVirtual(Student.class, "name", MethodType.methodType(String.class));
         return new MethodHandleAccessor(methodHandle);
     }
 }
-

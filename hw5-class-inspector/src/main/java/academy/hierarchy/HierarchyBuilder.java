@@ -7,9 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Строит дерево наследования для переданного класса.
- */
+/** Строит дерево наследования для переданного класса. */
 public class HierarchyBuilder {
 
     /**
@@ -48,8 +46,7 @@ public class HierarchyBuilder {
         return root;
     }
 
-    private void addPermitted(
-            HierarchyNode parent, Class<?> type, Set<Class<?>> visited, Class<?> chainChild) {
+    private void addPermitted(HierarchyNode parent, Class<?> type, Set<Class<?>> visited, Class<?> chainChild) {
         if (type == null || !type.isSealed()) {
             return;
         }
@@ -70,4 +67,3 @@ public class HierarchyBuilder {
         }
     }
 }
-

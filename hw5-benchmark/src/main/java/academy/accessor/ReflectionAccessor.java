@@ -4,9 +4,7 @@ import academy.model.Student;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-/**
- * Доступ к полю через рефлексию.
- */
+/** Доступ к полю через рефлексию. */
 final class ReflectionAccessor implements AccessorStrategy {
 
     private final Method method;
@@ -24,4 +22,3 @@ final class ReflectionAccessor implements AccessorStrategy {
         }
     }
 }
-

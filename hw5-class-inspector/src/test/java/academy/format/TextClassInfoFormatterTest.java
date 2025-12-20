@@ -1,19 +1,18 @@
 package academy.format;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import academy.hierarchy.HierarchyRenderer;
 import academy.model.ClassInfo;
 import academy.model.FieldInfo;
 import academy.model.HierarchyNode;
 import academy.model.MethodInfo;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import java.util.Collections;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class TextClassInfoFormatterTest {
 
@@ -42,8 +41,7 @@ class TextClassInfoFormatterTest {
                 Collections.emptyList(),
                 Collections.emptyList(),
                 Collections.emptyList(),
-                null
-        );
+                null);
 
         String result = formatter.format(info);
 
@@ -55,21 +53,11 @@ class TextClassInfoFormatterTest {
 
     @Test
     void givenClassInfoWithFieldsAndMethods_whenFormat_thenIncludesAll() {
-        List<FieldInfo> fields = List.of(
-                new FieldInfo("public", "name", "String", Collections.emptyList())
-        );
+        List<FieldInfo> fields = List.of(new FieldInfo("public", "name", "String", Collections.emptyList()));
         List<MethodInfo> methods = List.of(
-                new MethodInfo("public", "getName", Collections.emptyList(), "String", Collections.emptyList())
-        );
+                new MethodInfo("public", "getName", Collections.emptyList(), "String", Collections.emptyList()));
         ClassInfo info = new ClassInfo(
-                "academy.sample.Person",
-                null,
-                Collections.emptyList(),
-                fields,
-                methods,
-                Collections.emptyList(),
-                null
-        );
+                "academy.sample.Person", null, Collections.emptyList(), fields, methods, Collections.emptyList(), null);
 
         String result = formatter.format(info);
 
@@ -93,8 +81,7 @@ class TextClassInfoFormatterTest {
                 Collections.emptyList(),
                 Collections.emptyList(),
                 Collections.emptyList(),
-                root
-        );
+                root);
 
         String result = formatter.format(info);
 

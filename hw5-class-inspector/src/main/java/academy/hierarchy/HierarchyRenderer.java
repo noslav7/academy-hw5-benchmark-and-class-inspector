@@ -2,9 +2,7 @@ package academy.hierarchy;
 
 import academy.model.HierarchyNode;
 
-/**
- * Рендерит иерархию наследования в человекочитаемом виде.
- */
+/** Рендерит иерархию наследования в человекочитаемом виде. */
 public class HierarchyRenderer {
 
     /**
@@ -36,4 +34,3 @@ public class HierarchyRenderer {
         }
     }
 }
-

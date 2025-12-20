@@ -3,9 +3,7 @@ package academy.runner;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
-/**
- * Строитель опций для JMH-бенчмарков.
- */
+/** Строитель опций для JMH-бенчмарков. */
 final class BenchmarkOptionsBuilder {
 
     /**
@@ -21,4 +19,3 @@ final class BenchmarkOptionsBuilder {
                 .build();
     }
 }
-

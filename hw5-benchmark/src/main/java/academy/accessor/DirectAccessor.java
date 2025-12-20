@@ -2,9 +2,7 @@ package academy.accessor;
 
 import academy.model.Student;
 
-/**
- * Прямой доступ к полю через геттер записи.
- */
+/** Прямой доступ к полю через геттер записи. */
 final class DirectAccessor implements AccessorStrategy {
 
     @Override
@@ -12,4 +10,3 @@ final class DirectAccessor implements AccessorStrategy {
         return student.name();
     }
 }
-

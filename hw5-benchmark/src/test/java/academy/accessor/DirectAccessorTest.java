@@ -11,4 +11,3 @@ class DirectAccessorTest extends AbstractAccessorTest {
         return new DirectAccessor();
     }
 }
-

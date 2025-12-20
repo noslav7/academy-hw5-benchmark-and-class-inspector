@@ -16,9 +16,7 @@ import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
 
-/**
- * Бенчмарк сравнивает разные способы получения имени студента.
- */
+/** Бенчмарк сравнивает разные способы получения имени студента. */
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
@@ -66,4 +64,3 @@ public class StudentNameBenchmark {
         bh.consume(lambdaAccessor.get(student));
     }
 }
-

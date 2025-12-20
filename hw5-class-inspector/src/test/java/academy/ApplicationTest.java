@@ -1,16 +1,15 @@
 package academy;
 
-import academy.format.OutputFormat;
-import org.junit.jupiter.api.Test;
-import picocli.CommandLine;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.lang.reflect.Field;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import academy.format.OutputFormat;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.lang.reflect.Field;
+import org.junit.jupiter.api.Test;
+import picocli.CommandLine;
 
 class ApplicationTest {
 
@@ -61,7 +60,6 @@ class ApplicationTest {
         }
     }
 
-
     @Test
     void givenInvalidClassName_whenCall_thenThrowsException() throws Exception {
         Application app = new Application();
@@ -78,4 +76,3 @@ class ApplicationTest {
         field.set(obj, value);
     }
 }
-

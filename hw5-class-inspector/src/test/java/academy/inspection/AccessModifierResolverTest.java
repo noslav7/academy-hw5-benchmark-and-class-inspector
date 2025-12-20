@@ -1,13 +1,12 @@
 package academy.inspection;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.lang.reflect.Modifier;
 import java.util.stream.Stream;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 class AccessModifierResolverTest {
 
@@ -25,8 +24,6 @@ class AccessModifierResolverTest {
                 Arguments.of(Modifier.PROTECTED, "protected"),
                 Arguments.of(Modifier.PRIVATE, "private"),
                 Arguments.of(0, "package-private"),
-                Arguments.of(Modifier.PUBLIC | Modifier.STATIC, "public")
-        );
+                Arguments.of(Modifier.PUBLIC | Modifier.STATIC, "public"));
     }
 }
-

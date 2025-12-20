@@ -2,9 +2,7 @@ package academy.runner;
 
 import picocli.CommandLine;
 
-/**
- * Фасад для запуска JMH-бенчмарков.
- */
+/** Фасад для запуска JMH-бенчмарков. */
 public final class BenchmarkRunner {
 
     private final BenchmarkExecutor executor;
@@ -27,4 +25,3 @@ public final class BenchmarkRunner {
         return executor.execute(benchmarkClass);
     }
 }
-

@@ -2,14 +2,10 @@ package academy.format;
 
 import academy.model.ClassInfo;
 
-/**
- * Стратегия форматирования результата анализа.
- */
+/** Стратегия форматирования результата анализа. */
 public interface ClassInfoFormatter {
 
-    /**
-     * @return формат, который поддерживает стратегия
-     */
+    /** @return формат, который поддерживает стратегия */
     OutputFormat formatType();
 
     /**
@@ -20,4 +16,3 @@ public interface ClassInfoFormatter {
      */
     String format(ClassInfo info);
 }
-

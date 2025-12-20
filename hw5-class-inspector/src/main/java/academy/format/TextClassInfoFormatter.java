@@ -5,9 +5,7 @@ import academy.model.ClassInfo;
 import academy.model.MethodInfo;
 import java.util.StringJoiner;
 
-/**
- * Форматирует результат инспекции в текстовом виде.
- */
+/** Форматирует результат инспекции в текстовом виде. */
 public class TextClassInfoFormatter implements ClassInfoFormatter {
 
     private final HierarchyRenderer hierarchyRenderer;
@@ -25,7 +23,9 @@ public class TextClassInfoFormatter implements ClassInfoFormatter {
     public String format(ClassInfo info) {
         StringBuilder sb = new StringBuilder();
         sb.append("Class: ").append(info.className()).append('\n');
-        sb.append("Superclass: ").append(info.superclass() != null ? info.superclass() : "none").append('\n');
+        sb.append("Superclass: ")
+                .append(info.superclass() != null ? info.superclass() : "none")
+                .append('\n');
 
         sb.append("Interfaces:\n");
         if (info.interfaces().isEmpty()) {
@@ -67,7 +67,8 @@ public class TextClassInfoFormatter implements ClassInfoFormatter {
         if (info.annotations().isEmpty()) {
             sb.append("  - none\n");
         } else {
-            info.annotations().forEach(annotation -> sb.append("  - @").append(annotation).append('\n'));
+            info.annotations()
+                    .forEach(annotation -> sb.append("  - @").append(annotation).append('\n'));
         }
 
         sb.append("Hierarchy:\n");
@@ -84,4 +85,3 @@ public class TextClassInfoFormatter implements ClassInfoFormatter {
         return joiner.toString();
     }
 }
-

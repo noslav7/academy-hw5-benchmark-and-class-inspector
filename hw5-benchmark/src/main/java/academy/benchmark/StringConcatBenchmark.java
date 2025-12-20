@@ -13,9 +13,7 @@ import org.openjdk.jmh.annotations.State;
 import org.openjdk.jmh.annotations.Warmup;
 import org.openjdk.jmh.infra.Blackhole;
 
-/**
- * Бенчмарк сравнивает разные способы конкатенации строк.
- */
+/** Бенчмарк сравнивает разные способы конкатенации строк. */
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @State(Scope.Benchmark)
@@ -46,4 +44,3 @@ public class StringConcatBenchmark {
         bh.consume(sb.toString());
     }
 }
-

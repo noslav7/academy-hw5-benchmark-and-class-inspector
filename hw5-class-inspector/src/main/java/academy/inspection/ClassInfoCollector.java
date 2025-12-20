@@ -13,9 +13,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Собирает информацию о структуре класса.
- */
+/** Собирает информацию о структуре класса. */
 public class ClassInfoCollector {
 
     private final HierarchyBuilder hierarchyBuilder;
@@ -33,10 +31,10 @@ public class ClassInfoCollector {
     public ClassInfo collect(Class<?> clazz) {
         String className = clazz.getName();
         String superclass = clazz.getSuperclass() != null && clazz.getSuperclass() != Object.class
-                ? clazz.getSuperclass().getName() : null;
-        List<String> interfaces = Arrays.stream(clazz.getInterfaces())
-                .map(Class::getSimpleName)
-                .toList();
+                ? clazz.getSuperclass().getName()
+                : null;
+        List<String> interfaces =
+                Arrays.stream(clazz.getInterfaces()).map(Class::getSimpleName).toList();
 
         List<FieldInfo> fields = Arrays.stream(clazz.getDeclaredFields())
                 .filter(field -> !Modifier.isStatic(field.getModifiers()))
@@ -52,13 +50,7 @@ public class ClassInfoCollector {
         HierarchyNode hierarchyRoot = hierarchyBuilder.build(clazz);
 
         return new ClassInfo(
-                className,
-                superclass,
-                interfaces,
-                fields,
-                methods,
-                List.copyOf(annotations),
-                hierarchyRoot);
+                className, superclass, interfaces, fields, methods, List.copyOf(annotations), hierarchyRoot);
     }
 
     private FieldInfo toFieldInfo(Field field) {
@@ -91,4 +83,3 @@ public class ClassInfoCollector {
         return annotations;
     }
 }
-

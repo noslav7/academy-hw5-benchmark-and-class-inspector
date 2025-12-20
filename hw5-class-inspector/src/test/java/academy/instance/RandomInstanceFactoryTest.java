@@ -1,13 +1,13 @@
 package academy.instance;
 
-import academy.sample.Person;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import academy.sample.Person;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class RandomInstanceFactoryTest {
 
@@ -25,8 +25,7 @@ class RandomInstanceFactoryTest {
         assertAll(
                 () -> assertNotNull(result),
                 () -> assertNotNull(result.getName()),
-                () -> assertNotNull(result.getAge())
-        );
+                () -> assertNotNull(result.getAge()));
     }
 
     @Test

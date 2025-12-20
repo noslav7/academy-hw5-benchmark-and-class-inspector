@@ -1,9 +1,9 @@
 package academy.hierarchy;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import academy.model.HierarchyNode;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HierarchyRendererTest {
 

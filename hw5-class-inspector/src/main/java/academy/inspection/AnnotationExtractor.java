@@ -4,9 +4,7 @@ import java.lang.annotation.Annotation;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Утилита для извлечения имен аннотаций.
- */
+/** Утилита для извлечения имен аннотаций. */
 public final class AnnotationExtractor {
 
     private AnnotationExtractor() {}
@@ -23,4 +21,3 @@ public final class AnnotationExtractor {
                 .toList();
     }
 }
-

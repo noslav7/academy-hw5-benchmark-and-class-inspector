@@ -1,14 +1,13 @@
 package academy.benchmark;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import academy.accessor.AccessorFactory;
 import academy.accessor.AccessorStrategy;
 import academy.model.Student;
+import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.stream.Stream;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StudentNameBenchmarkTest {
 
@@ -27,12 +26,6 @@ class StudentNameBenchmarkTest {
 
     private static Stream<AccessorStrategy> accessorProvider() {
         AccessorFactory.AccessorSet accessors = AccessorFactory.createAll();
-        return Stream.of(
-                accessors.direct(),
-                accessors.reflection(),
-                accessors.methodHandle(),
-                accessors.lambda()
-        );
+        return Stream.of(accessors.direct(), accessors.reflection(), accessors.methodHandle(), accessors.lambda());
     }
 }
-

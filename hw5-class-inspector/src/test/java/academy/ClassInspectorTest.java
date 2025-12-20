@@ -1,17 +1,16 @@
 package academy;
 
-import academy.format.JsonSerializer;
-import academy.format.OutputFormat;
-import academy.sample.Human;
-import academy.sample.Person;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import academy.format.JsonSerializer;
+import academy.format.OutputFormat;
+import academy.sample.Person;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Test;
 
 class ClassInspectorTest {
 
@@ -53,8 +52,7 @@ class ClassInspectorTest {
                 () -> assertNotNull(result),
                 () -> assertNotNull(jsonNode),
                 () -> assertEquals("Test", jsonNode.get("name").asText()),
-                () -> assertEquals(25, jsonNode.get("age").asInt())
-        );
+                () -> assertEquals(25, jsonNode.get("age").asInt()));
     }
 
     @Test
@@ -64,9 +62,6 @@ class ClassInspectorTest {
         assertAll(
                 () -> assertNotNull(result),
                 () -> assertNotNull(result.getName()),
-                () -> assertNotNull(result.getAge())
-        );
+                () -> assertNotNull(result.getAge()));
     }
-
 }
-

@@ -1,17 +1,17 @@
 package academy.inspection;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import academy.hierarchy.HierarchyBuilder;
 import academy.model.ClassInfo;
 import academy.sample.Human;
 import academy.sample.Person;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ClassInfoCollectorTest {
 
@@ -29,8 +29,7 @@ class ClassInfoCollectorTest {
         assertAll(
                 () -> assertNotNull(result),
                 () -> assertEquals("academy.sample.Human", result.className()),
-                () -> assertNull(result.superclass())
-        );
+                () -> assertNull(result.superclass()));
     }
 
     @Test
@@ -40,8 +39,7 @@ class ClassInfoCollectorTest {
         assertAll(
                 () -> assertNotNull(result),
                 () -> assertEquals("academy.sample.Person", result.className()),
-                () -> assertEquals("academy.sample.Human", result.superclass())
-        );
+                () -> assertEquals("academy.sample.Human", result.superclass()));
     }
 
     @Test

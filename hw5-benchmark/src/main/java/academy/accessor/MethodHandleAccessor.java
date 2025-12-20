@@ -3,9 +3,7 @@ package academy.accessor;
 import academy.model.Student;
 import java.lang.invoke.MethodHandle;
 
-/**
- * Доступ к полю через {@link MethodHandle}.
- */
+/** Доступ к полю через {@link MethodHandle}. */
 final class MethodHandleAccessor implements AccessorStrategy {
 
     private final MethodHandle methodHandle;
@@ -23,4 +21,3 @@ final class MethodHandleAccessor implements AccessorStrategy {
         }
     }
 }
-

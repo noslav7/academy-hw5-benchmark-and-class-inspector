@@ -15,4 +15,3 @@ class ReflectionAccessorTest extends AbstractAccessorTest {
         return new ReflectionAccessor(method);
     }
 }
-

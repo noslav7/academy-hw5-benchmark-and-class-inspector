@@ -2,9 +2,7 @@ package academy.inspection;
 
 import java.lang.reflect.Modifier;
 
-/**
- * Преобразует модификаторы доступа в человекочитаемые значения.
- */
+/** Преобразует модификаторы доступа в человекочитаемые значения. */
 public final class AccessModifierResolver {
 
     private AccessModifierResolver() {}
@@ -28,4 +26,3 @@ public final class AccessModifierResolver {
         return "package-private";
     }
 }
-

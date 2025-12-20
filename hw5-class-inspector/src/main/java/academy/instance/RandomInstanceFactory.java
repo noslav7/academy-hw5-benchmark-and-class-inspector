@@ -28,9 +28,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
-/**
- * Создает и заполняет экземпляры классов случайными значениями.
- */
+/** Создает и заполняет экземпляры классов случайными значениями. */
 public class RandomInstanceFactory {
 
     private static final int MAX_DEPTH = 3;
@@ -40,7 +38,7 @@ public class RandomInstanceFactory {
      * Создает экземпляр указанного класса.
      *
      * @param clazz тип для создания
-     * @param <T>   тип экземпляра
+     * @param <T> тип экземпляра
      * @return заполненный объект
      */
     public <T> T create(Class<T> clazz) {
@@ -146,8 +144,8 @@ public class RandomInstanceFactory {
         return array;
     }
 
-    private Collection<Object> buildCollection(
-            Class<?> type, Type genericType, int depth, Map<Class<?>, Object> cache) throws Exception {
+    private Collection<Object> buildCollection(Class<?> type, Type genericType, int depth, Map<Class<?>, Object> cache)
+            throws Exception {
         Collection<Object> collection = collectionInstance(type);
         if (collection == null) {
             return null;
@@ -406,4 +404,3 @@ public class RandomInstanceFactory {
         return random.nextLong() & Long.MAX_VALUE;
     }
 }
-

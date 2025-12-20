@@ -2,9 +2,7 @@ package academy.accessor;
 
 import academy.model.Student;
 
-/**
- * Доступ к полю через {@link java.lang.invoke.LambdaMetafactory}.
- */
+/** Доступ к полю через {@link java.lang.invoke.LambdaMetafactory}. */
 final class LambdaAccessor implements AccessorStrategy {
 
     private final StudentNameGetter getter;
@@ -23,4 +21,3 @@ final class LambdaAccessor implements AccessorStrategy {
         String get(Student student);
     }
 }
-

@@ -7,9 +7,7 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import picocli.CommandLine;
 
-/**
- * Выполняет JMH-бенчмарки.
- */
+/** Выполняет JMH-бенчмарки. */
 final class BenchmarkExecutor {
 
     private static final Logger LOG = LogManager.getLogger(BenchmarkExecutor.class);
@@ -37,4 +35,3 @@ final class BenchmarkExecutor {
         }
     }
 }
-

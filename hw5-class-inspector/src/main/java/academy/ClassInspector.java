@@ -14,9 +14,7 @@ import academy.model.ClassInfo;
 import java.util.EnumMap;
 import java.util.Map;
 
-/**
- * Фасад, предоставляющий функции инспекции и создания объектов.
- */
+/** Фасад, предоставляющий функции инспекции и создания объектов. */
 public final class ClassInspector {
 
     private static final ClassInspector INSTANCE = createDefault();
@@ -40,7 +38,7 @@ public final class ClassInspector {
     /**
      * Анализирует класс и возвращает описание в указанном формате.
      *
-     * @param clazz  анализируемый класс
+     * @param clazz анализируемый класс
      * @param format строковый формат
      * @return результат анализа
      */
@@ -51,7 +49,7 @@ public final class ClassInspector {
     /**
      * Анализирует класс и возвращает описание в указанном формате.
      *
-     * @param clazz  анализируемый класс
+     * @param clazz анализируемый класс
      * @param format формат вывода
      * @return результат анализа
      */
@@ -81,7 +79,7 @@ public final class ClassInspector {
      * Создает и заполняет экземпляр класса.
      *
      * @param clazz тип для создания
-     * @param <T>   тип экземпляра
+     * @param <T> тип экземпляра
      * @return созданный объект
      */
     public static <T> T create(Class<T> clazz) {

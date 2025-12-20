@@ -2,9 +2,7 @@ package academy.accessor;
 
 import academy.model.Student;
 
-/**
- * Стратегия доступа к полю объекта.
- */
+/** Стратегия доступа к полю объекта. */
 public interface AccessorStrategy {
 
     /**
@@ -15,4 +13,3 @@ public interface AccessorStrategy {
      */
     String get(Student student);
 }
-

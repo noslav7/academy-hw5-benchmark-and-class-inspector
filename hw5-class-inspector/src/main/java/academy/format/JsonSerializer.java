@@ -4,12 +4,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-/**
- * Обертка над {@link ObjectMapper} с заранее настроенной конфигурацией.
- */
+/** Обертка над {@link ObjectMapper} с заранее настроенной конфигурацией. */
 public class JsonSerializer {
 
-    private final ObjectMapper objectMapper = new ObjectMapper().findAndRegisterModules()
+    private final ObjectMapper objectMapper = new ObjectMapper()
+            .findAndRegisterModules()
             .enable(SerializationFeature.INDENT_OUTPUT)
             .disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
 
@@ -31,4 +30,3 @@ public class JsonSerializer {
         return objectMapper;
     }
 }
-

@@ -3,9 +3,7 @@ package academy.model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Узел дерева наследования.
- */
+/** Узел дерева наследования. */
 public final class HierarchyNode {
 
     private final String name;
@@ -33,4 +31,3 @@ public final class HierarchyNode {
         children.add(child);
     }
 }
-

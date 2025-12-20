@@ -16,8 +16,7 @@ class LambdaAccessorTest extends AbstractAccessorTest {
         differentStudentName = "Frank Taylor";
         differentStudentAge = 29;
         MethodHandles.Lookup lookup = MethodHandles.lookup();
-        MethodHandle methodHandle = lookup.findVirtual(
-                Student.class, "name", MethodType.methodType(String.class));
+        MethodHandle methodHandle = lookup.findVirtual(Student.class, "name", MethodType.methodType(String.class));
         MethodType instanceGetter = MethodType.methodType(String.class, Student.class);
         CallSite callSite = LambdaMetafactory.metafactory(
                 lookup,
@@ -31,4 +30,3 @@ class LambdaAccessorTest extends AbstractAccessorTest {
         return new LambdaAccessor(getter);
     }
 }
-

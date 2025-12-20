@@ -1,8 +1,6 @@
 package academy.format;
 
-/**
- * Форматы вывода данных инспектора.
- */
+/** Форматы вывода данных инспектора. */
 public enum OutputFormat {
     TEXT,
     JSON;
@@ -26,4 +24,3 @@ public enum OutputFormat {
         throw new IllegalArgumentException("Неподдерживаемый формат: " + raw);
     }
 }
-
