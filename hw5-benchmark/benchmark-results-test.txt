@@ -1,0 +1,5 @@
+Benchmark                                   Mode  Cnt  Score   Error  Units
+StudentNameBenchmark.directCall             avgt   16  0.934 ± 0.091  ns/op
+StudentNameBenchmark.lambdaMetafactoryCall  avgt   16  1.251 ± 0.042  ns/op
+StudentNameBenchmark.methodHandleCall       avgt   16  4.354 ± 0.473  ns/op
+StudentNameBenchmark.reflectionCall         avgt   16  9.327 ± 1.089  ns/op
