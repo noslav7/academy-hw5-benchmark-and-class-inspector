@@ -1,5 +1,6 @@
 package academy.format;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -42,8 +43,21 @@ class JsonClassInfoFormatterTest {
 
         assertNotNull(result);
         JsonNode jsonNode = objectMapper.readTree(result);
-        assertEquals("academy.sample.Person", jsonNode.get("class").asText());
-        assertEquals("academy.sample.Human", jsonNode.get("superclass").asText());
+        assertAll(
+                () -> assertEquals(
+                        "academy.sample.Person", jsonNode.get("class").asText()),
+                () -> assertEquals(
+                        "academy.sample.Human", jsonNode.get("superclass").asText()),
+                () -> assertTrue(jsonNode.get("interfaces").isArray()),
+                () -> assertEquals(0, jsonNode.get("interfaces").size()),
+                () -> assertTrue(jsonNode.get("fields").isArray()),
+                () -> assertEquals(0, jsonNode.get("fields").size()),
+                () -> assertTrue(jsonNode.get("methods").isArray()),
+                () -> assertEquals(0, jsonNode.get("methods").size()),
+                () -> assertTrue(jsonNode.get("annotations").isArray()),
+                () -> assertEquals(0, jsonNode.get("annotations").size()),
+                () -> assertTrue(jsonNode.get("hierarchy").isObject()),
+                () -> assertEquals(0, jsonNode.get("hierarchy").size()));
     }
 
     @Test

@@ -1,5 +1,6 @@
 package academy.format;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -46,9 +47,11 @@ class TextClassInfoFormatterTest {
         String result = formatter.format(info);
 
         String[] lines = result.split("\n");
-        assertNotNull(result);
-        assertEquals("Class: academy.sample.Person", lines[0]);
-        assertEquals("Superclass: academy.sample.Human", lines[1]);
+        assertAll(
+                () -> assertNotNull(result),
+                () -> assertEquals("Class: academy.sample.Person", lines[0]),
+                () -> assertEquals("Superclass: academy.sample.Human", lines[1]),
+                () -> assertEquals(12, lines.length));
     }
 
     @Test

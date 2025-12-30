@@ -1,5 +1,6 @@
 package academy;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -27,9 +28,14 @@ class ApplicationTest {
         try {
             int result = app.call();
 
-            assertEquals(0, result);
             String output = outputStream.toString();
-            assertEquals("Class: academy.sample.Human", output.split("\n")[0]);
+            String[] lines = output.split("\n");
+            assertAll(
+                    () -> assertEquals(0, result),
+                    () -> assertNotNull(output),
+                    () -> assertEquals("Class: academy.sample.Human", lines[0]),
+                    () -> assertEquals("Superclass: none", lines[1]),
+                    () -> assertEquals(12, lines.length));
         } finally {
             System.setOut(originalOut);
         }
